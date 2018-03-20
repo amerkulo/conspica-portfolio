@@ -5,3 +5,7 @@ This is my professional portfolio....
 Chocolatey
 Git and GitHub
 SSH
+HTML
+CSS
+Font Awesome
+Google Fonts
