@@ -1,4 +1,4 @@
-version: 1.0
+version: 0.1
 
 phase:
   build:
@@ -11,4 +11,3 @@ artifacts:
     - AlexanderMerkulov.pdf
     - styles/main.css
     - images/*
-    
