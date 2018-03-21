@@ -34,5 +34,7 @@ cwd = os.getcwd()
 print cwd
 os.system("aws s3 ls")
 os.system("aws s3 ls staging.conspica.com")
+Adding a couple of test lines.
+Adding a couple more of tet lines.
 
 """
