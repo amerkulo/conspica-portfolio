@@ -1,0 +1,14 @@
+version: 1.0
+
+phase:
+  build:
+    commands:
+      - echo Nothing to do yet
+artifacts:
+  files:
+    - index.html
+    - favicon.ico
+    - AlexanderMerkulov.pdf
+    - styles/main.css
+    - images/*
+    
