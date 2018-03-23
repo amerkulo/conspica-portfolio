@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+
+    .errorBox {
+      border: 1px solid red;
+      background-color: #eebbbb;
+      margin: 1em;
+      padding: 2em;
+      display: block;
+    }
+
+    .errorBox--hidden {
+      display: none;
+    }
+
+    .content--hidden {
+      display: none;
+    }
+
+    .content--visible {
+      display: block;
+    }
+
+    .background--color--white {
+      background-color: #ffffff;
+    }
+    </style>
+
+  </head>
+  <body>
+    <main>
+      <label>Name: <input id="name" type="text" ></input> </label>
+      <button id="submitInfo">Click Me!</button>
+    <div id="content" class="content--visible">
+    <div id="error" class="errorBox--hidden">
+      Error goes here.
+    </div>
+    </div>
+
+    </main>
+    <script src="https://unpkg.com/babel-standalone">
+
+    </script>
+    <script type="text/babel" data-presets="latest">
+    const getMessage=(name)=>`Welcome to Java script ${name}!`;
+    const errorMessage = document.getElementById("error");
+    const button = document.getElementById('submitInfo');
+    const contentDiv = document.getElementById('content');
+
+    button.addEventListener('click', event => {
+      //document.getElementById('content').textContent +="Click";
+      let name = document.getElementById("name").value;
+      if (name.length < 1){
+        //alert("You need to enter you name in the field.")
+        //document.getElementById('content').textContent +="Less";
+        errorMessage.textContent = "You need to enter you name in the field.";
+        errorMessage.className = "errorBox";
+
+        //document.getElementById('content').textContent +="More";
+
+
+      }
+      else {
+      //contentDiv.className="content--visible";
+      //contentDiv.textContent=getMessage(name);
+      errorMessage.className = "errorBox background--color--white";
+      errorMessage.textContent=getMessage(name);
+    }
+    });
+    </script>
+
+  </body>
+</html>
