@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/mocha@3.4.2/mocha.css">
     <style>
     .messageBox {
       border: 1px solid;
@@ -25,10 +26,13 @@
   <body>
     <main>
       <div id="content"></div>
+      <div id="mocha"></div>
       </main>
       <script src="https://unpkg.com/babel-standalone"></script>
       <script type="text/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
       <script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+      <script type="text/javascript" src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+      <script type="text/javascript" src="https://unpkg.com/mocha@3.4.2/mocha.js"></script>
 
       <script type="text/babel" data-presets="react">
 
@@ -56,7 +60,7 @@
           let msg = this.state.message;
           return(<div>
                  <label>Name: <input ref="nameInput" type="text" /></label>
-                 <button onClick={this.buttonClicked}>ClickMe!</button>
+                 <button id="clickbttn" onClick={this.buttonClicked}>ClickMe!</button>
                  <MessageBox type={msg.stl} message={msg.body}/>
                 </div>)
         }
@@ -73,6 +77,45 @@
            ReactDOM.render(<NameInput />, document.getElementById("content"));
            //document.getElementById("content").textContent="jkjkjkjkjkjkjkj";
       </script>
+
+      <script type="text/babel" data-presets="react">
+      const assert = chai.assert;
+      mocha.ui("bdd");
+      mocha.reporter("html");
+      describe("The test run", ()=> {
+        it("Validating Math",() => {
+          assert.notEqual(5,3+1,"Math works");
+          assert.equal(6,3+3,"Math works");
+          assert.closeTo(Math.PI,3,.2,"Pi is close to 3");
+        });
+        it("Validating object definiition", () => {
+          assert.isDefined(MessageBox,"MessageBox is defined in our code.");
+        });
+        it("Validate Function calls", () => {
+          let myname = "Alex";
+          const getName  =(name)=> "Hello " + myname + " !";
+          assert.include(getName(myname),myname,"Includes my name");
+        });
+      });
+      describe("Document test", () => {
+        it("Assert the document", () => {
+        let mssgBox = document.querySelector(".messageBox");
+        assert.isDefined(mssgBox,"Message Box is in the document.");
+        assert.include(mssgBox.classList.value,"hidden","Message box is hidden");
+        assert.equal(mssgBox.innerText,"","Message Box is empty.");
+      });
+      it("Render an error when field is empty", () => {
+        let mssBox = document.querySelector(".messageBox");
+        let bttn  = document.querySelector("#clickbttn");
+        bttn.click();
+        assert(mssBox.classList.value,"error","Message Box is in error.")
+      });
+    });
+
+
+
+      mocha.run();
+     </script>
 
 
 
