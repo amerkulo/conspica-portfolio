@@ -4,6 +4,8 @@ phase:
   build:
     commands:
       - echo Nothing to do yet
+      - npm install
+      - npm run webpack --mode production
 artifacts:
   files:
     - index.html
@@ -11,3 +13,4 @@ artifacts:
     - AlexanderMerkulov.pdf
     - styles/main.css
     - images/*
+    - dist/bundle.js
