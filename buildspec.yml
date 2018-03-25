@@ -1,11 +1,21 @@
 version: 0.1
 
-phase:
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
   build:
     commands:
-      - echo Nothing to do yet
+      - echo Entering build phase....
       - npm install
-      - npm run webpack --mode production
+      - npm run webpack
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
 artifacts:
   files:
     - index.html
