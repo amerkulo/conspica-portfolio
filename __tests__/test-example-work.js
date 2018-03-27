@@ -34,7 +34,7 @@ describe("ExampleWork component", () => {
 
   let comp = shallow(<ExampleWork work={myWork}/>);
    it("Just the first test", () => {
-     expect("Hello").toEqual("Hello");
+     expect("Hello").toEqual("Hellno");
     });
    it("Expect it to be a section component", () =>  {
      expect(comp.type()).toEqual=('section');
