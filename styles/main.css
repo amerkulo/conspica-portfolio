@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   font-size: 4.2rem;
-  min-height: 20vh;
+  min-height: 30vh;
   position: relative;
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -126,8 +126,8 @@ h1, h2, h3, h4, h5, h6 {
 .section__exampleWrapper,
 .section__example {
   display: inline-block;
-  height: 35rem;
-  width: 35rem;
+  height: 30rem;
+  width: 30rem;
 }
 
 .section__exampleWrapper {
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section__exampleTitle{
-  font-size: 3.4rem;
+  font-size: 2.5rem;
   text-align: center;
   text-transform: uppercase;
   width: 90%;

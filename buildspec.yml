@@ -7,10 +7,11 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
+      - npm install
+      - npm test
   build:
     commands:
       - echo Entering build phase....
-      - npm install
       - npm run webpack
   post_build:
     commands:
