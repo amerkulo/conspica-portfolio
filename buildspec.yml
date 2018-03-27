@@ -12,7 +12,7 @@ phases:
   build:
     commands:
       - echo Entering build phase....
-      - npm run webpack
+      - npm run dev
   post_build:
     commands:
       - echo Entered the post_build phase...
